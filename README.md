@@ -2,7 +2,7 @@
 ExtJS project in plain HTML.    
 
 ## Run   
-Just use a static server and execute it:   
+Just use a [static server](https://gist.github.com/willurd/5720255) and execute it:   
 ``` 
 cd pure_html
 python -m http.server 8080  

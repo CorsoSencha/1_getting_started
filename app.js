@@ -1,7 +1,7 @@
 
 Ext.require(['App.view.main.Main']) 
 Ext.application({
-    name: 'App',    
+    name: 'Pure HTML',    
     mainView: 'App.view.main.Main'
     // launch: function () {
     //     Ext.create('App.view.main.Main').show();

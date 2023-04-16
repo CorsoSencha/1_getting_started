@@ -1,18 +1,98 @@
-
 <!DOCTYPE html>
+
 <html>
 
 <head>
-    <title>Main!</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-crisp/resources/theme-crisp-all.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/app.css">
 
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all-debug.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-crisp/theme-crisp-debug.js"></script>
-   <script type="text/javascript" src="app.js"></script>
-    
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+      rel="stylesheet" />
+
+
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+   <script type="text/javascript" id="controllers">
+      Ext.define('MyController', {
+         extend: 'Ext.app.Controller',
+         alias: 'controller.foo',
+
+
+         clickMe: function() {
+            alert("CLICKED")
+         },
+         init: function () {
+            console.log('Initialized Users! This happens before ' +
+               'the Application launch() function is called');
+         }
+      });
+
+   </script>
+
+   <script type="text/javascript">
+
+      Ext.define('Ext.MyC', {
+    extend: 'Ext.app.Controller',
+    customFn: function () {
+        console.log('hey')
+    }
+})
+      // Ext.define('MyPanel', {
+      //    extend: 'Ext.Panel',
+      //    controllers: ['MyC'],
+      //    // controller: 'foo',
+      //    xtype: 'mypanel',
+      //    html: 'CIAONE'
+
+      // });
+
+      Ext.application({
+         name: 'MyApp',
+         // controllers: ['MyApp.controller.boh.DoNotKnow'],
+         controllers: ['Ext.MyC', 'MyApp.controller.Internal'],
+         launch: function() {
+            // console.log(Ext.app.MyApp.app.getController('MyC'))
+            // p = Ext.create('MyPanel');
+
+         Ext.onReady(function () {
+            var childPanel1 = Ext.create('Ext.panel.Panel', {
+               title: 'Child Panel 1',
+               items: [
+               {
+                  text: 'Ciaone',
+                  xtype: 'button',
+                  handler: function() {
+                     MyApp.getApplication().getController('MyApp.controller.Internal').clickMe()
+                     // debugger
+                        // console.log(MyController())
+                     // ()
+                  }
+               }
+               ]
+            });
+
+               Ext.create('Ext.container.Viewport', {
+                  renderTo: Ext.getBody(),
+                  items: [  childPanel1
+               // {
+               //    text: 'CIAONE',
+               //    xytpe: 'button',
+               //    // handler: 'customFn'
+               // }
+               ]
+               })
+            });
+
+         }
+      });
+
+
+   </script>
+
 </head>
 
-<body></body>
+
+
+<body>
+
+   <div id="helloWorldPanel" /> 
+</body>
 
 </html>

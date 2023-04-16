@@ -17,7 +17,7 @@ Ext.define('Pure.view.main.Main', {
     },
 
     items: [
-        {html: 'One'},
-        {html: 'Two'}
+        {html: '<b>One</b>'},
+        {html: '<b>Two</b>'}
     ]
 });
